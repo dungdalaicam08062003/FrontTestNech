@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     items: [{ productId: product.id, qty: 1 }],
                 })
             );
-            location.href = "/checkout.html?src=buy-now";
+            location.href = "./checkout.html?src=buy-now";
         });
     } catch (e) {
         console.error("❌ load product failed", e);
