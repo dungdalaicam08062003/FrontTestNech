@@ -1,0 +1,186 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Checkout — LAPTOP TECHNEST</title>
+
+    <!-- CSS: GIỮ NGUYÊN đường dẫn tuyệt đối từ gốc wwwroot -->
+    <link rel="stylesheet" href="/HomePage/homepage.css" />
+    <link rel="stylesheet" href="/CheckOut/checkout.css" />
+</head>
+<script src="/assets/js/header-auth.js"></script>
+<body>
+    <!-- ================= HEADER (đầy đủ thẻ) ================= -->
+    <header class="header">
+        <div class="header-container">
+            <!-- LEFT -->
+            <div class="header-left">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa8nQXA65vI5DicKg1YmndczfyaGlveHqj9Q&s"
+                     class="logo-img"
+                     alt="Logo" />
+                <div class="logo-text">
+                    <a href="/HomePage/homepage.html" class="shop-name" style="text-decoration:none;color:#fff">LAPTOP TECHNEST</a>
+                    <div class="shop-slogan">Uy tín - Chất lượng</div>
+                </div>
+            </div>
+
+            <!-- SEARCH -->
+            <div class="header-search">
+                <input id="searchInput" type="text" placeholder="Tìm kiếm sản phẩm..." />
+                <button id="searchBtn" type="button">🔍</button>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="header-right">
+                <div class="hotline-box">📞 <span>0947243779 - 0952434861</span></div>
+                <div class="account-wrapper">
+                    <button class="account-btn" type="button" id="accountBtn">
+                        👤 Tài khoản
+                    </button>
+
+                    <div class="account-menu" id="accountMenu">
+                        <button id="btnProfile">✏️ Thay đổi thông tin</button>
+                        <button id="btnLogout">🚪 Đăng xuất</button>
+                    </div>
+                </div>
+
+                <div class="wallet-box">💰 <span id="walletBalance">0 đ</span></div>
+                <button class="cart-icon" type="button">🛒<span id="cartCount">0</span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= MAIN ================= -->
+    <main class="checkout-container">
+        <section class="checkout-grid">
+            <!-- CỘT TRÁI: THÔNG TIN THANH TOÁN -->
+            <div class="checkout-form">
+                <h2>THÔNG TIN THANH TOÁN</h2>
+
+                <form id="billingForm" novalidate>
+                    <div class="row">
+                        <div class="field">
+                            <label for="firstName">Tên <span>*</span></label>
+                            <input id="firstName" name="firstName" type="text" required placeholder="Tên" />
+                        </div>
+                        <div class="field">
+                            <label for="lastName">Họ <span>*</span></label>
+                            <input id="lastName" name="lastName" type="text" required placeholder="Họ" />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="company">Tên công ty (tuỳ chọn)</label>
+                        <input id="company" name="company" type="text" placeholder="Công ty" />
+                    </div>
+
+                    <div class="field">
+                        <label for="country">Quốc gia/Khu vực <span>*</span></label>
+                        <select id="country" name="country" required>
+                            <option value="VN" selected>Việt Nam</option>
+                            <option value="US">Hoa Kỳ</option>
+                            <option value="JP">Nhật Bản</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="address1">Địa chỉ <span>*</span></label>
+                        <input id="address1" name="address1" type="text" required placeholder="Địa chỉ" />
+                    </div>
+
+                    <div class="field">
+                        <label for="address2">Căn hộ, dãy phòng, đơn vị... (không bắt buộc)</label>
+                        <input id="address2" name="address2" type="text" placeholder="Căn hộ, dãy phòng, đơn vị..." />
+                    </div>
+
+                    <div class="field">
+                        <label for="postalCode">Mã bưu điện (tuỳ chọn)</label>
+                        <input id="postalCode" name="postalCode" type="text" placeholder="700000" />
+                    </div>
+
+                    <div class="row">
+                        <div class="field">
+                            <label for="city">Tỉnh/Thành phố <span>*</span></label>
+                            <input id="city" name="city" type="text" required placeholder="Đà Nẵng" />
+                        </div>
+                        <div class="field">
+                            <label for="phone">Số điện thoại <span>*</span></label>
+                            <input id="phone" name="phone" type="tel" required placeholder="09xxxxxxxx" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- CỘT PHẢI: ĐƠN HÀNG -->
+            <aside class="order-summary" aria-live="polite">
+                <h2>ĐƠN HÀNG CỦA BẠN</h2>
+
+                <div class="order-lines">
+                    <div class="order-header">
+                        <span>SẢN PHẨM</span>
+                        <span class="right">TẠM TÍNH</span>
+                    </div>
+
+                    <div id="orderItems" class="order-items"><!-- render bằng JS --></div>
+
+                    <div class="order-totals">
+                        <div class="line">
+                            <span>Tạm tính</span><span id="subtotal" class="right">0 đ</span>
+                        </div>
+                        <div class="line total">
+                            <span>Tổng</span><span id="grandTotal" class="right">0 đ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <label class="pm">
+                        <input type="radio" name="payment" value="cod" />
+                        Trả tiền mặt khi nhận hàng
+                    </label>
+                </div>
+
+                <button id="placeOrderBtn" class="btn-primary" type="button">Đặt hàng</button>
+                <p class="privacy-hint">
+                    Thông tin cá nhân của bạn sẽ được dùng để xử lý đơn hàng theo Chính sách bảo mật.
+                </p>
+            </aside>
+        </section>
+    </main>
+    <script>
+        // ========== HEADER CART (UNIVERSAL) ==========
+        (function () {
+            const CART_KEY = 'cart';
+
+            function readCart() {
+                try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+                catch { return []; }
+            }
+
+            // đồng bộ số lượng
+            window.updateCartBadge = function () {
+                const badge = document.querySelector('#cartCount');
+                if (!badge) return;
+                const count = readCart().reduce((s, it) => s + (Number(it.qty) || 1), 0);
+                badge.textContent = String(count);
+            };
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const btn = document.querySelector('.cart-icon');
+                if (btn) {
+                    btn.addEventListener('click', () => {
+                        window.location.href = '/Cart/cart.html';
+                    });
+                }
+                updateCartBadge();
+            });
+        })();
+    </script>
+
+
+    <!-- JS -->
+    <script src="/CheckOut/checkout.js"></script>
+    <script type="module" src="./checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Giỏ hàng | TechNest</title>
+
+    <!-- CSS dùng chung (header, layout của Home) -->
+    <link rel="stylesheet" href="/HomePage/homepage.css" />
+    <!-- CSS riêng của Cart -->
+    <link rel="stylesheet" href="/Cart/cart.css" />
+</head>
+<script src="/assets/js/header-auth.js"></script>
+<body>
+
+    <header class="header">
+        <div class="header-container">
+            <!-- LEFT -->
+            <div class="header-left">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa8nQXA65vI5DicKg1YmndczfyaGlveHqj9Q&s"
+                     class="logo-img"
+                     alt="Logo" />
+                <div class="logo-text">
+                    <a href="/HomePage/homepage.html" class="shop-name" style="text-decoration:none;color:#fff">LAPTOP TECHNEST</a>
+                    <div class="shop-slogan">Uy tín - Chất lượng</div>
+                </div>
+            </div>
+
+            <!-- SEARCH -->
+            <div class="header-search">
+                <input id="searchInput" type="text" placeholder="Tìm kiếm sản phẩm..." />
+                <button id="searchBtn" type="button">🔍</button>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="header-right">
+                <div class="hotline-box">📞 <span>0947243779 - 0952434861</span></div>
+                <div class="account-wrapper">
+                    <button class="account-btn" type="button" id="accountBtn">
+                        👤 Tài khoản
+                    </button>
+
+                    <div class="account-menu" id="accountMenu">
+                        <button id="btnProfile">✏️ Thay đổi thông tin</button>
+                        <button id="btnLogout">🚪 Đăng xuất</button>
+                    </div>
+                </div>
+
+                <div class="wallet-box">💰 <span id="walletBalance">0 đ</span></div>
+                <button class="cart-icon" type="button">🛒<span id="cartCount">0</span></button>
+            </div>
+        </div>
+    </header>
+    <!-- ========================= MAIN ========================= -->
+    <main class="cart-container">
+        <section class="cart-left">
+            <div class="cart-table">
+                <div class="cart-row cart-header">
+                    <div class="c-col product">SẢN PHẨM</div>
+                    <div class="c-col price">GIÁ</div>
+                    <div class="c-col qty">SỐ LƯỢNG</div>
+                    <div class="c-col subtotal">TẠM TÍNH</div>
+                    <div class="c-col remove"></div>
+                </div>
+
+                <div id="cart-items"></div>
+
+                <div class="cart-actions">
+                    <a class="btn btn-secondary" href="/HomePage/homepage.html">← Tiếp tục xem sản phẩm</a>
+                    <button id="btn-update" class="btn btn-outline">Cập nhật giỏ hàng</button>
+                </div>
+            </div>
+        </section>
+
+        <aside class="cart-right">
+            <div class="cart-summary">
+                <h3>TỔNG CỘNG GIỎ HÀNG</h3>
+                <div class="sum-row">
+                    <span>Tạm tính</span>
+                    <strong id="sum-subtotal">0 đ</strong>
+                </div>
+                <div class="sum-row total">
+                    <span>Tổng</span>
+                    <strong id="sum-total">0 đ</strong>
+                </div>
+                <button id="btn-checkout" class="btn btn-primary">Tiến hành thanh toán</button>
+            </div>
+
+            <div class="cart-coupon">
+                <h4>Mã ưu đãi</h4>
+                <div class="coupon-row">
+                    <input id="coupon-code" type="text" placeholder="Mã ưu đãi" />
+                    <button id="btn-apply-coupon" class="btn btn-outline">Áp dụng</button>
+                </div>
+                <p id="coupon-message" class="coupon-msg"></p>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Template 1 dòng sản phẩm -->
+    <template id="cart-item-tpl">
+        <div class="cart-row cart-item" data-id="">
+            <div class="c-col product">
+                <img class="thumb" alt="">
+                <div class="p-info">
+                    <a class="p-name" href="#"></a>
+                    <div class="p-variant"></div>
+                </div>
+            </div>
+            <div class="c-col price"><span class="price-txt"></span></div>
+            <div class="c-col qty">
+                <div class="qty-box">
+                    <button class="qty-btn dec" title="Giảm">-</button>
+                    <input class="qty-input" type="number" min="1" value="1">
+                    <button class="qty-btn inc" title="Tăng">+</button>
+                </div>
+            </div>
+            <div class="c-col subtotal"><span class="subtotal-txt"></span></div>
+            <div class="c-col remove"><button class="remove-btn" title="Xoá">×</button></div>
+        </div>
+    </template>
+
+    <!-- Header Cart JS: đồng bộ badge + điều hướng icon (KHÔNG khai báo biến global trùng) -->
+    <script>
+        (() => {
+            function readCart() {
+                try { return JSON.parse(localStorage.getItem('cart')) || []; }
+                catch { return []; }
+            }
+            // Export 1 hàm global an toàn
+            window.updateCartBadge = function () {
+                const badge = document.querySelector('#cartCount');
+                if (!badge) return;
+                const count = readCart().reduce((s, it) => s + (Number(it.qty) || 1), 0);
+                badge.textContent = String(count);
+            };
+            document.addEventListener('DOMContentLoaded', () => {
+                const btn = document.querySelector('.cart-icon');
+                if (btn) {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        window.location.href = '/Cart/cart.html'; // hoặc '/cart' nếu đã rewrite
+                    });
+                }
+                window.updateCartBadge();
+            });
+        })();
+    </script>
+
+    <!-- JS chính của trang Cart -->
+    <script type="module" src="/Cart/cart.js"></script>
+</body>
+</html>

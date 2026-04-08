@@ -1,0 +1,72 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <title>Admin · Client Detail</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="/Admin/dashboard/dashboard.css" />
+    <link rel="stylesheet" href="/Admin/client-detail/client-detail.css" />
+    <script src="/Admin/client-detail/client-detail.js" defer></script>
+</head>
+
+<body>
+    <!-- ========== SIDEBAR ========== -->
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="logo">TN</div>
+            <div class="brand-text">TechNest Admin</div>
+        </div>
+
+        <nav class="menu">
+            <a class="item" href="/admin/dashboard/dashboard.html"><span class="icon">📊</span><span>Dashboard</span></a>
+            <a class="item" href="/admin/products/products.html"><span class="icon">🗂️</span><span>Products</span></a>
+            <a class="item" href="/admin/orders/orders.html"><span class="icon">🧾</span><span>Orders</span></a>
+            <a class="item active" href="/admin/clients/clients.html"><span class="icon">👥</span><span>Clients</span></a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <button id="logoutBtn" class="btn btn-ghost">Đăng xuất</button>
+        </div>
+    </aside>
+
+    <!-- ========== TOPBAR ========== -->
+    <header class="topbar">
+        <div class="page-title">Chi tiết khách hàng</div>
+        <div class="top-actions">
+            <a href="/admin/clients/clients.html" class="btn btn-ghost">← Quay lại Clients</a>
+        </div>
+    </header>
+
+    <!-- ========== CONTENT ========== -->
+    <main class="content">
+        <!-- CLIENT INFO -->
+        <section class="card" id="clientInfoCard"></section>
+
+        <!-- ORDERS -->
+        <section class="card">
+            <div class="section-head">
+                <h2>Đơn hàng của khách</h2>
+            </div>
+
+            <div class="table-wrap">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width:160px">Order ID</th>
+                            <th style="width:180px">Ngày tạo</th>
+                            <th style="width:160px">Tổng tiền</th>
+                            <th style="width:140px">Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyOrders"></tbody>
+                </table>
+
+                <div id="emptyOrders" class="empty" hidden>
+                    Khách hàng chưa có đơn nào
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

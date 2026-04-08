@@ -1,0 +1,43 @@
+﻿/* Tái sử dụng toàn bộ theme của products */
+@import url("../products/products.css");
+
+/* Tuỳ biến thêm cho Orders */
+.select {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #f9fafb;
+    color: #111827
+}
+
+.table td select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #fff
+}
+
+.order-items {
+    margin-top: 10px;
+    padding: 10px;
+    background: #f8fafc;
+    border: 1px dashed #e5e7eb;
+    border-radius: 10px
+}
+
+    .order-items .line {
+        display: flex;
+        justify-content: space-between;
+        padding: 6px 0;
+        border-bottom: 1px dashed #e5e7eb
+    }
+
+        .order-items .line:last-child {
+            border-bottom: none
+        }
+
+.note {
+    color: var(--muted);
+    font-size: 13px
+}

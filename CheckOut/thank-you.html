@@ -1,0 +1,78 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cảm ơn bạn</title>
+
+    <!-- CSS header của trang chủ -->
+    <link rel="stylesheet" href="/HomePage/homepage.css" />
+    <style>
+        main {
+            max-width: 720px;
+            margin: 60px auto;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 28px 20px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(0,0,0,.06);
+        }
+
+        .ty-title {
+            font-size: 24px;
+            font-weight: 800;
+            margin: 0 0 8px;
+        }
+
+        .ty-desc {
+            color: #6b7280;
+            margin: 0 0 16px;
+        }
+
+        a.btn {
+            display: inline-block;
+            margin-top: 8px;
+            background: #c40000;
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER (đầy đủ thẻ) -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa8nQXA65vI5DicKg1YmndczfyaGlveHqj9Q&s"
+                     class="logo-img" alt="Logo" />
+                <div class="logo-text">
+                    <div class="shop-name">LAPTOP TECHNEST</div>
+                    <div class="shop-slogan">Uy tín - Chất lượng</div>
+                </div>
+            </div>
+
+            <div class="header-search">
+                <input type="text" placeholder="Tìm kiếm sản phẩm..." />
+                <button type="button">🔍</button>
+            </div>
+
+            <div class="header-right">
+                <div class="hotline-box">📞 <span>0947243779 - 0952434861</span></div>
+                <button class="account-btn" type="button">👤 Tài khoản</button>
+                <div class="wallet-box">💰 <span id="walletBalance">0 đ</span></div>
+                <button class="cart-icon" type="button">🛒<span id="cartCount">0</span></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="ty-title">🎉 Đặt hàng thành công!</h1>
+        <p class="ty-desc">Chúng tôi sẽ liên hệ xác nhận đơn trong thời gian sớm nhất.</p>
+        <a class="btn" href="/">Về trang chủ</a>
+    </main>
+</body>
+</html>

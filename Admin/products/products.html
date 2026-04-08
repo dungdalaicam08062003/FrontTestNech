@@ -1,0 +1,129 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <title>Admin · Products</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/Admin/products/products.css" />
+    <script src="/Admin/products/products.js" defer></script>
+    <script type="module" src="./products.js"></script>
+
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="logo">TN</div>
+            <div class="brand-text">TechNest Admin</div>
+        </div>
+        <nav class="menu">
+            <a class="item" href="/admin/dashboard/dashboard.html"><span class="icon">📊</span><span>Dashboard</span></a>
+            <a class="item active" href="/admin/products/products.html"><span class="icon">🗂️</span><span>Products</span></a>
+            <a class="item" href="/admin/orders/orders.html"><span class="icon">🧾</span><span>Orders</span></a>
+            <a class="item" href="/admin/clients/clients.html">
+                <span class="icon">👥</span>
+                <span>Clients</span>
+            </a>
+        </nav>
+        <div class="sidebar-bottom">
+            <button id="logoutBtn" class="btn btn-ghost">Đăng xuất</button>
+        </div>
+    </aside>
+
+    <!-- Topbar -->
+    <header class="topbar">
+        <div class="page-title">Products</div>
+        <div class="top-actions"><span class="hint">Quản lý danh mục sản phẩm</span></div>
+    </header>
+
+    <!-- Content -->
+    <main class="content">
+        <!-- Toolbar -->
+        <section class="card toolbar">
+            <div class="left">
+                <h1>Quản lý sản phẩm</h1>
+                <p class="sub">Tạo mới, chỉnh sửa, xoá sản phẩm</p>
+            </div>
+            <div class="right">
+                <div class="search">
+                    <span class="search-icon">🔎</span>
+                    <input id="searchInput" type="text" placeholder="Tìm theo tên hoặc ID..." />
+                </div>
+                <button id="btnAdd" class="btn btn-primary">+ Thêm sản phẩm</button>
+            </div>
+        </section>
+
+        <!-- Table -->
+        <section class="card">
+            <div class="table-wrap">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width:140px">ID</th>
+                            <th>Tên</th>
+                            <th style="width:160px">Giá (VND)</th>
+                            <th style="width:120px">Tồn kho</th>
+                            <th style="width:160px">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyProducts"></tbody>
+                </table>
+                <div id="emptyState" class="empty" hidden>Không có sản phẩm.</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Add/Edit -->
+    <dialog id="productModal" class="modal">
+        <form method="dialog" class="modal-body" id="productForm">
+            <div class="modal-header">
+                <h3 id="modalTitle">Thêm sản phẩm</h3>
+                <button type="button" class="btn-icon" id="btnCancel" aria-label="Đóng">✖</button>
+            </div>
+
+            <div class="grid">
+                <label class="field">
+                    <span>ID (slug)</span>
+                    <input id="p_id" type="text" placeholder="p_001 hoặc laptop-dell-inspiron-15" required />
+                </label>
+                <label class="field">
+                    <span>Tên</span>
+                    <input id="p_name" type="text" required />
+                </label>
+                <label class="field">
+                    <span>Giá (VND)</span>
+                    <input id="p_price" type="number" min="0" step="1000" required />
+                </label>
+                <label class="field">
+                    <span>Tồn kho</span>
+                    <input id="p_stock" type="number" min="0" step="1" required />
+                </label>
+                <label class="field col-2">
+                    <span>Ảnh chính (URL)</span>
+                    <input id="p_mainImage" type="text" placeholder="https://..." />
+                </label>
+                <label class="field col-2">
+                    <span>Gallery (mỗi dòng 1 URL)</span>
+                    <textarea id="p_gallery" rows="3" placeholder="https://..."></textarea>
+                </label>
+                <label class="field col-2">
+                    <span>Mô tả</span>
+                    <textarea id="p_desc" rows="3"></textarea>
+                </label>
+                <label class="field col-2">
+                    <span>Thông số (JSON)</span>
+                    <textarea id="p_specs" rows="6" placeholder='{"cpu":"Intel i5","ram":"16GB"}'></textarea>
+                </label>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="btn" id="btnCancel2">Hủy</button>
+                <button type="submit" class="btn btn-primary" id="btnSave">Lưu</button>
+            </div>
+        </form>
+    </dialog>
+
+    <div id="toast" class="toast" hidden></div>
+</body>
+</html>

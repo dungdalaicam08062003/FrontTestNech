@@ -1,0 +1,83 @@
+﻿ <!doctype html>
+                        <html lang="vi">
+                        <head>
+                            <meta charset="utf-8" />
+                            <title>Admin · Dashboard</title>
+                            <meta name="viewport" content="width=device-width, initial-scale=1" />
+                            <link rel="stylesheet" href="/Admin/dashboard/dashboard.css" />
+                            <script type="module" src="/Admin/dashboard/dashboard.js"></script>
+                        </head>
+
+                        <body>
+                            <aside class="sidebar">
+                                <div class="brand">
+                                    <div class="logo">TN</div>
+                                    <div class="brand-text">TechNest Admin</div>
+                                </div>
+                                <nav class="menu">
+                                    <a class="item active" href="/admin/dashboard/dashboard.html"><span class="icon">📊</span><span>Dashboard</span></a>
+                                    <a class="item" href="/admin/products/products.html"><span class="icon">🗂️</span><span>Products</span></a>
+                                    <a class="item" href="/admin/orders/orders.html"><span class="icon">🧾</span><span>Orders</span></a>
+                                    <a class="item" href="/admin/clients/clients.html">
+                                        <span class="icon">👥</span>
+                                        <span>Clients</span>
+                                    </a>
+                                </nav>
+                                <div class="sidebar-bottom">
+                                    <button id="logoutBtn" class="btn btn-ghost">Đăng xuất</button>
+                                </div>
+                            </aside>
+
+                            <header class="topbar">
+                                <div class="page-title">Dashboard</div>
+                                <div class="top-actions"><span class="hint">Tổng quan số liệu</span></div>
+                            </header>
+
+                            <main class="content">
+                                <!-- metrics -->
+                                <section class="grid-metrics">
+                                    <div class="metric card accent-green">
+                                        <div class="metric-title">Tổng sản phẩm</div>
+                                        <div class="metric-value" id="m_totalProducts">0</div>
+                                    </div>
+                                    <div class="metric card accent-blue">
+                                        <div class="metric-title">Tổng đơn</div>
+                                        <div class="metric-value" id="m_totalOrders">0</div>
+                                    </div>
+                                    <div class="metric card accent-orange">
+                                        <div class="metric-title">Đơn mới (24h)</div>
+                                        <div class="metric-value" id="m_newOrders">0</div>
+                                    </div>
+                                    <div class="metric card accent-red">
+                                        <div class="metric-title">Tồn kho thấp (≤5)</div>
+                                        <div class="metric-value" id="m_lowStock">0</div>
+                                    </div>
+                                </section>
+
+                                <!-- recent orders -->
+                                <section class="card">
+                                    <div class="section-head">
+                                        <h2>Đơn gần đây</h2>
+                                        <a class="btn" href="/admin/orders/orders.html">Xem tất cả</a>
+
+                                    </div>
+                                    <div class="table-wrap">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width:140px">OrderID</th>
+                                                    <th>Khách</th>
+                                                    <th style="width:150px">SĐT</th>
+                                                    <th style="width:150px">Trạng thái</th>
+                                                    <th style="width:140px">Tổng</th>
+                                                    <th style="width:160px">Tạo lúc</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tbodyRecent"></tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </main>
+                        </body>
+                    </html>
+               

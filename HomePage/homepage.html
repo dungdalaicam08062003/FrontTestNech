@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>LAPTOP TECHNEST</title>
+    <link rel="stylesheet" href="/HomePage/homepage.css" />
+</head>
+<script src="/assets/js/header-auth.js"></script>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <!-- LEFT: LOGO -->
+            <div class="header-left">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa8nQXA65vI5DicKg1YmndczfyaGlveHqj9Q&s" class="logo-img" alt="Logo" />
+                <div class="logo-text">
+                    <div class="shop-name">LAPTOP TECHNEST</div>
+                    <div class="shop-slogan">Uy tín - Chất lượng</div>
+                </div>
+            </div>
+
+            <!-- SEARCH -->
+            <div class="header-search">
+                <input id="searchInput" type="text" placeholder="Tìm kiếm sản phẩm..." />
+                <button id="searchBtn" type="button">🔍</button>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="header-right">
+                <div class="hotline-box">📞 <span>0947243779 - 0952434861</span></div>
+                <div class="account-wrapper">
+                    <button class="account-btn" type="button" id="accountBtn">
+                        👤 Tài khoản
+                    </button>
+
+                    <div class="account-menu" id="accountMenu">
+                        <button id="btnProfile">✏️ Thay đổi thông tin</button>
+                        <button id="btnLogout">🚪 Đăng xuất</button>
+                    </div>
+                </div>
+
+                <div class="wallet-box">💰 <span id="walletBalance">0 đ</span></div>
+                <button class="cart-icon">🛒<span id="cartCount">0</span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- SHELL: Sidebar trái + Nội dung phải -->
+    <section class="shell container">
+        <!-- SIDEBAR TRÁI -->
+        <aside class="sidebar" aria-label="Danh mục sản phẩm">
+            <div class="sidebar__head">
+                <span class="sidebar__title">Danh mục sản phẩm</span>
+            </div>
+
+            <ul class="side-menu">
+                <!-- Laptop có submenu hãng -->
+                <li class="side-item has-sub">
+                    <button class="side-link" type="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="icon">💻</span>
+                        <span class="text">Laptop</span>
+                        <span class="chev">▸</span>
+                    </button>
+                    <ul class="sub-list" role="menu" aria-label="Hãng Laptop">
+                        <li><button class="sub-link" type="button" data-brand="" data-cat="laptop">Tất cả hãng</button></li>
+                        <li><button class="sub-link" type="button" data-brand="dell" data-cat="laptop">Dell</button></li>
+                        <li><button class="sub-link" type="button" data-brand="asus" data-cat="laptop">Asus</button></li>
+                        <li><button class="sub-link" type="button" data-brand="hp" data-cat="laptop">HP</button></li>
+                        <li><button class="sub-link" type="button" data-brand="lenovo" data-cat="laptop">Lenovo</button></li>
+                        <li><button class="sub-link" type="button" data-brand="apple" data-cat="laptop">Apple</button></li>
+                    </ul>
+                </li>
+
+                <!-- Các danh mục khác -->
+                <li class="side-item">
+                    <button class="side-link" type="button" data-cat="desktop">
+                        <span class="icon">🖥️</span><span class="text">Máy tính để bàn</span>
+                    </button>
+                </li>
+                <li class="side-item">
+                    <button class="side-link" type="button" data-cat="headphone">
+                        <span class="icon">🎧</span><span class="text">Tai nghe</span>
+                    </button>
+                </li>
+                <li class="side-item">
+                    <button class="side-link" type="button" data-cat="keyboard">
+                        <span class="icon">⌨️</span><span class="text">Bàn phím</span>
+                    </button>
+                </li>
+                <li class="side-item">
+                    <button class="side-link" type="button" data-cat="mouse">
+                        <span class="icon">🖱️</span><span class="text">Chuột</span>
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Nhãn promo nhỏ -->
+            <div class="sidebar__promo">
+                <div class="pill pill--hot">Khuyến mãi</div>
+                <div class="pill pill--install">Trả góp 0%</div>
+            </div>
+        </aside>
+
+        <!-- CỘT PHẢI -->
+        <div class="right-col">
+            <!-- BANNER -->
+            <section class="banner banner--right">
+                <img src="https://img.pikbest.com/templates/20250926/black-friday-super-sale-for-gaming-laptop-web-banner-or-background-template_11904437.jpg!f305cw"
+                     alt="Khuyến mãi Back To School" />
+            </section>
+
+            <!-- FILTERS -->
+            <section class="filters">
+                <div class="filters__row">
+                    <div class="section-title">
+                        <span class="dot"></span> Sản phẩm nổi bật
+                    </div>
+                    <div class="spacer"></div>
+                    <div class="sort">
+                        <label for="sortSelect">Sắp xếp:</label>
+                        <select id="sortSelect">
+                            <option value="relevance" selected>Mặc định</option>
+                            <option value="price_asc">Giá ↑</option>
+                            <option value="price_desc">Giá ↓</option>
+                            <option value="newest">Mới nhất</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GRID + PHÂN TRANG -->
+            <main>
+                <div id="grid" class="grid"></div>
+                <div id="pagination" class="pagination" role="navigation" aria-label="Phân trang"></div>
+
+                <div id="emptyState" class="empty hidden">
+                    Không có sản phẩm phù hợp. Hãy điều chỉnh bộ lọc hoặc từ khóa.
+                </div>
+
+                <div id="errorState" class="error hidden">
+                    Có lỗi khi tải dữ liệu. <button id="retryBtn" type="button" onclick="fetchProducts()">Thử lại</button>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <!-- Toast -->
+    <div id="toast" class="toast hidden" role="status" aria-live="polite">Đã thêm vào giỏ</div>
+    <script>
+        // ========== HEADER CART (UNIVERSAL) ==========
+        (function () {
+            const CART_KEY = 'cart';
+
+            function readCart() {
+                try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+                catch { return []; }
+            }
+
+            // đồng bộ số lượng
+            window.updateCartBadge = function () {
+                const badge = document.querySelector('#cartCount');
+                if (!badge) return;
+                const count = readCart().reduce((s, it) => s + (Number(it.qty) || 1), 0);
+                badge.textContent = String(count);
+            };
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const btn = document.querySelector('.cart-icon');
+                if (btn) {
+                    btn.addEventListener('click', () => {
+                        window.location.href = '/Cart/cart.html';
+                    });
+                }
+                updateCartBadge();
+            });
+        })();
+    </script>
+    <script type="module" src="/HomePage/homepage.js"></script>
+
+
+</body>
+</html>

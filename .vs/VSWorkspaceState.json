@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\assets",
+    "\\assets\\js",
+    "\\assets\\js\\config",
+    "\\assets\\js\\services",
+    "\\Auth",
+    "\\Cart",
+    "\\CheckOut",
+    "\\HomePage",
+    "\\ProductDetail"
+  ],
+  "SelectedNode": "\\HomePage\\homepage.js",
+  "PreviewInSolutionExplorer": false
+}

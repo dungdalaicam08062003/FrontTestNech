@@ -1,0 +1,36 @@
+﻿.client-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    font-size: 14px;
+}
+
+.empty {
+    padding: 20px;
+    text-align: center;
+    color: #888;
+}
+
+/* status badge */
+.status {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+    .status.pending {
+        background: #fff7e6;
+        color: #d48806;
+    }
+
+    .status.paid {
+        background: #f6ffed;
+        color: #389e0d;
+    }
+
+    .status.shipped {
+        background: #e6f4ff;
+        color: #0958d9;
+    }

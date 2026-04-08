@@ -1,0 +1,380 @@
+﻿/* ========== Khung trang ========== */
+.pd-container {
+    margin-top: 14px;
+}
+
+.pd-breadcrumb {
+    font-size: 13px;
+    color: #667085;
+    margin-bottom: 6px;
+}
+
+    .pd-breadcrumb a {
+        color: #0a5ecf;
+        text-decoration: none;
+    }
+
+.pd-title {
+    margin: 4px 0 12px;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+/* ========== 3 cột ========== */
+.pd-3col {
+    display: grid;
+    grid-template-columns: 1.1fr 1.2fr 0.9fr;
+    gap: 14px;
+    align-items: start;
+}
+
+@media (max-width: 1080px) {
+    .pd-3col {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========== Gallery ========== */
+.pd-left {
+    min-width: 0;
+}
+
+.pd-gallery {
+    position: relative;
+    background: #fff;
+    border: 1px solid #f1f1f1;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.pd-main {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: #f5f7fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .pd-main img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+.pd-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: rgba(17,17,17,.6);
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.pd-nav--prev {
+    left: 10px;
+}
+
+.pd-nav--next {
+    right: 10px;
+}
+
+.pd-thumbs {
+    margin-top: 8px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+}
+
+.pd-thumb {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    cursor: pointer;
+}
+
+    .pd-thumb img {
+        width: 100%;
+        height: 60px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .pd-thumb.active {
+        outline: 2px solid #0a5ecf;
+    }
+
+/* ========== Thông tin/giá (giữa) ========== */
+.pd-mid {
+    min-width: 0;
+}
+
+.pd-pricing {
+    background: #fff;
+    border: 1px solid #f1f1f1;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
+.pd-price-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: end;
+}
+
+.pd-price-col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.pd-price-label {
+    color: #6b7280;
+    font-weight: 700;
+}
+
+.pd-price-label--sale {
+    color: #111;
+}
+
+.pd-price-old {
+    color: #9ca3af;
+    text-decoration: line-through;
+}
+
+.pd-price-sale {
+    color: var(--danger);
+    font-weight: 900;
+    font-size: 26px;
+}
+
+.pd-sale-badge {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 2px 6px;
+    background: #ffeaea;
+    color: #c40000;
+    border-radius: 6px;
+    font-weight: 800;
+}
+
+.pd-status {
+    margin-top: 6px;
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-weight: 800;
+    background: #e8fff2;
+    color: #00a85a;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* bullets */
+.pd-bullets {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0;
+    display: grid;
+    gap: 6px;
+}
+
+    .pd-bullets li {
+        display: flex;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+        .pd-bullets li .dot {
+            width: 8px;
+            height: 8px;
+            margin-top: 6px;
+            background: #0a5ecf;
+            border-radius: 50%;
+        }
+
+.pd-variants {
+    margin: 10px 0 0;
+}
+
+    .pd-variants .group {
+        margin-bottom: 8px;
+    }
+
+    .pd-variants .label {
+        font-weight: 900;
+        margin-bottom: 6px;
+    }
+
+    .pd-variants .opt {
+        display: inline-flex;
+        border: 1px solid #e5e7eb;
+        padding: 6px 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        margin: 0 6px 6px 0;
+        background: #fff;
+    }
+
+        .pd-variants .opt.active {
+            border-color: #0a5ecf;
+            background: #eef7ff;
+        }
+
+.pd-promos {
+    background: #fff6f0;
+    border: 1px dashed #ffb17a;
+    padding: 8px;
+    border-radius: 10px;
+    margin-top: 8px;
+}
+
+.pd-promos__title {
+    font-weight: 900;
+    margin-bottom: 6px;
+}
+
+.pd-promos ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.pd-cta {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.btn--xl {
+    padding: 12px 16px;
+    font-size: 16px;
+}
+
+/* ========== Sidebar phải ========== */
+.pd-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pd-box {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 1px solid #f1f1f1;
+    padding: 12px;
+}
+
+.pd-box__title {
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.pd-list {
+    margin: 0;
+    padding-left: 18px;
+}
+
+/* ========== Tabs ========== */
+.pd-tabs {
+    margin-top: 10px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 1px solid #f1f1f1;
+}
+
+.pd-tabs__head {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.pd-tab-btn {
+    border: 1px solid var(--border);
+    background: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+    .pd-tab-btn.active {
+        background: #eef7ff;
+        border-color: #b7dcff;
+        color: #0a5ecf;
+    }
+
+.pd-tabs__body {
+    padding: 12px;
+}
+
+.pd-desc {
+    color: #374151;
+}
+
+.pd-specs {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .pd-specs td {
+        border-bottom: 1px dashed #eee;
+        padding: 8px 6px;
+    }
+
+        .pd-specs td:first-child {
+            width: 200px;
+            color: #6b7280;
+        }
+/* ===== ACCOUNT DROPDOWN ===== */
+.account-wrapper {
+    position: relative;
+}
+
+.account-menu {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    min-width: 180px;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 999;
+}
+
+    .account-menu button {
+        background: none;
+        border: none;
+        padding: 12px 16px;
+        text-align: left;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background 0.2s;
+    }
+
+        .account-menu button:hover {
+            background: #f5f5f5;
+        }
+
+/* show menu */
+.account-wrapper.open .account-menu {
+    display: flex;
+}

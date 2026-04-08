@@ -1,0 +1,98 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <title>Admin · Clients</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- dùng chung style admin -->
+    <link rel="stylesheet" href="/Admin/dashboard/dashboard.css" />
+    <link rel="stylesheet" href="/Admin/clients/clients.css" />
+
+    <script src="/Admin/clients/clients.js" defer></script>
+</head>
+
+<body>
+    <!-- ========== SIDEBAR ========== -->
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="logo">TN</div>
+            <div class="brand-text">TechNest Admin</div>
+        </div>
+
+        <nav class="menu">
+            <a class="item" href="/admin/dashboard/dashboard.html">
+                <span class="icon">📊</span><span>Dashboard</span>
+            </a>
+
+            <a class="item" href="/admin/products/products.html">
+                <span class="icon">🗂️</span><span>Products</span>
+            </a>
+
+            <a class="item" href="/admin/orders/orders.html">
+                <span class="icon">🧾</span><span>Orders</span>
+            </a>
+
+            <!-- ✅ ACTIVE -->
+            <a class="item active" href="/admin/clients/clients.html">
+                <span class="icon">👥</span><span>Clients</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <button id="logoutBtn" class="btn btn-ghost">Đăng xuất</button>
+        </div>
+    </aside>
+
+    <!-- ========== TOPBAR ========== -->
+    <header class="topbar">
+        <div class="page-title">Clients</div>
+        <div class="top-actions">
+            <span class="hint">Quản lý khách hàng</span>
+        </div>
+    </header>
+
+    <!-- ========== CONTENT ========== -->
+    <main class="content">
+        <section class="card">
+            <div class="section-head">
+                <div>
+                    <h2>Quản lý khách hàng</h2>
+                    <p class="muted">Xem danh sách và lịch sử mua hàng</p>
+                </div>
+
+                <!-- SEARCH -->
+                <div class="filters">
+                    <div class="search">
+                        <input type="text"
+                               id="searchInput"
+                               placeholder="Tìm theo ClientID / Tên khách" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-wrap">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width:120px">ClientID</th>
+                            <th>Khách hàng</th>
+                            <th style="width:160px">SĐT</th>
+                            <th>Địa chỉ</th>
+                            <th style="width:120px">Số đơn</th>
+                            <th style="width:120px">Chi tiết</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyClients"></tbody>
+                </table>
+
+                <div id="emptyState" class="empty" hidden>
+                    Không tìm thấy khách hàng
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
+``

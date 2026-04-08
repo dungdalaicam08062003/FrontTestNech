@@ -1,0 +1,93 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <title>Admin · Orders</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/Admin/orders/orders.css" />
+    <script src="/Admin/orders/orders.js" defer></script>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="logo">TN</div>
+            <div class="brand-text">TechNest Admin</div>
+        </div>
+        <nav class="menu">
+            <a class="item" href="/admin/dashboard/dashboard.html"><span class="icon">📊</span><span>Dashboard</span></a>
+            <a class="item" href="/admin/products/products.html"><span class="icon">🗂️</span><span>Products</span></a>
+            <a class="item active" href="/admin/orders/orders.html"><span class="icon">🧾</span><span>Orders</span></a>
+            <a class="item" href="/admin/clients/clients.html">
+                <span class="icon">👥</span>
+                <span>Clients</span>
+            </a>
+
+        </nav>
+        <div class="sidebar-bottom">
+            <button id="logoutBtn" class="btn btn-ghost">Đăng xuất</button>
+        </div>
+    </aside>
+
+    <header class="topbar">
+        <div class="page-title">Orders</div>
+        <div class="top-actions"><span class="hint">Theo dõi và cập nhật trạng thái đơn</span></div>
+    </header>
+
+    <main class="content">
+        <section class="card toolbar">
+            <div class="left">
+                <h1>Quản lý đơn hàng</h1>
+                <p class="sub">Xem chi tiết, đổi trạng thái</p>
+            </div>
+            <div class="right">
+                <select id="statusFilter" class="select">
+                    <option value="">Tất cả trạng thái</option>
+                    <option value="pending">pending</option>
+                    <option value="processing">processing</option>
+                    <option value="shipping">shipping</option>
+                    <option value="completed">completed</option>
+                    <option value="cancelled">cancelled</option>
+                </select>
+                <div class="search">
+                    <span class="search-icon">🔎</span>
+                    <input id="searchInput" type="text" placeholder="Tìm theo OrderID / SĐT / Tên" />
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="table-wrap">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width:140px">OrderID</th>
+                            <th>Khách hàng</th>
+                            <th style="width:150px">SĐT</th>
+                            <th>Địa chỉ</th>
+                            <th style="width:140px">Tổng</th>
+                            <th style="width:160px">Trạng thái</th>
+                            <th style="width:160px">Tạo lúc</th>
+                            <th style="width:120px">Chi tiết</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyOrders"></tbody>
+                </table>
+                <div id="emptyState" class="empty" hidden>Không có đơn hàng.</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Detail modal -->
+    <dialog id="orderModal" class="modal">
+        <div class="modal-body">
+            <div class="modal-header">
+                <h3>Chi tiết đơn</h3>
+                <button class="btn-icon" id="closeModal">✖</button>
+            </div>
+            <div id="orderDetail"></div>
+        </div>
+    </dialog>
+
+    <div id="toast" class="toast" hidden></div>
+</body>
+</html>

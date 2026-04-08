@@ -1,0 +1,55 @@
+﻿/* Dùng lại toàn bộ theme & layout từ products */
+@import url("../products/products.css");
+
+/* Grid metrics */
+.grid-metrics {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 14px;
+    margin-bottom: 16px
+}
+
+.metric {
+    padding: 18px;
+    position: relative;
+    overflow: hidden
+}
+
+.metric-title {
+    color: var(--muted);
+    font-weight: 600
+}
+
+.metric-value {
+    font-size: 28px;
+    font-weight: 800;
+    margin-top: 6px
+}
+
+.accent-green {
+    border-left: 6px solid var(--success)
+}
+
+.accent-blue {
+    border-left: 6px solid #3b82f6
+}
+
+.accent-orange {
+    border-left: 6px solid var(--warning)
+}
+
+.accent-red {
+    border-left: 6px solid var(--danger)
+}
+
+.section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px
+}
+
+    .section-head h2 {
+        margin: 0;
+        font-size: 18px
+    }
