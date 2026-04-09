@@ -1,4 +1,4 @@
-﻿import { getProductById } from "/assets/js/services/product.service.js";
+﻿import { getProductById } from "../assets/js/services/product.service.js";
 
 const CART_KEY = "cart";
 const CHECKOUT_CTX_KEY = "checkout_ctx";
