@@ -7,7 +7,7 @@ import {
     getProductsByBrand,
     getProductsByCategory,
     searchProducts
-} from "./assets/js/services/product.service.js";
+} from "../assets/js/services/product.service.js";
 
 const PAGE_SIZE = 12;
 const CART_KEY = 'cart';
