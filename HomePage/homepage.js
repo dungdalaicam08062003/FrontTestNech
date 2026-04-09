@@ -139,14 +139,14 @@ function renderProducts(items) {
 
     grid.innerHTML = items.map(p => `
         <div class="card">
-            <a class="card__img-link" href="/ProductDetail/productdetail.html?id=${p.id}">
+            <a class="card__img-link" href="../ProductDetail/productdetail.html?id=${p.id}">
                 <img class="card__img"
                      src="${p.thumbnail || 'https://via.placeholder.com/400x300'}"
                      alt="${escapeHtml(p.name)}"
                      loading="lazy">
             </a>
 
-            <a class="card__title" href="/ProductDetail/productdetail.html?id=${p.id}">
+            <a class="card__title" href="../ProductDetail/productdetail.html?id=${p.id}">
                 ${escapeHtml(p.name)}
             </a>
 
