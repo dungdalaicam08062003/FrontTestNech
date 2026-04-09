@@ -1,6 +1,6 @@
 ﻿// wwwroot/assets/js/config/env.js
 
-export const MODE = "DEV";
+export const MODE = "PROD";
 // MOCK | DEV | PROD
 
 const CONFIG = {
@@ -11,7 +11,7 @@ const CONFIG = {
         API_BASE: "http://localhost:5000"
     },
     PROD: {
-        API_BASE: "https://api.technest.vn"
+        API_BASE: "https://testnest-jcdx.onrender.com"
     }
 
 };
