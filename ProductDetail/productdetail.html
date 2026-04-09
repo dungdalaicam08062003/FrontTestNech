@@ -5,36 +5,37 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Chi tiết sản phẩm</title>
 
-    <!-- CSS dùng chung -->
-    /HomePage/homepage.css
-    <!-- CSS riêng -->
-    /ProductDetail/productdetail.css
+    <!-- CSS dùng chung (header + layout) -->
+    <link rel="stylesheet" href="../HomePage/homepage.css" />
+    <!-- CSS riêng của ProductDetail -->
+    <link rel="stylesheet" href="productdetail.css" />
 </head>
-
+<script src="./assets/js/header-auth.js"></script>
 <body>
 
     <!-- ========================= HEADER ========================= -->
     <header class="header">
         <div class="header-container">
-
+            <!-- LEFT -->
             <div class="header-left">
-                https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa8nQXA65vI5DicKg1YmndczfyaGlveHqj9Q&s
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa8nQXA65vI5DicKg1YmndczfyaGlveHqj9Q&s"
+                     class="logo-img"
+                     alt="Logo" />
                 <div class="logo-text">
-                    /HomePage/homepage.html
-                        LAPTOP TECHNEST
-                    </a>
+                    <a href="../HomePage/homepage.html" class="shop-name" style="text-decoration:none;color:#fff">LAPTOP TECHNEST</a>
                     <div class="shop-slogan">Uy tín - Chất lượng</div>
                 </div>
             </div>
 
+            <!-- SEARCH -->
             <div class="header-search">
                 <input id="searchInput" type="text" placeholder="Tìm kiếm sản phẩm..." />
                 <button id="searchBtn" type="button">🔍</button>
             </div>
 
+            <!-- RIGHT -->
             <div class="header-right">
                 <div class="hotline-box">📞 <span>0947243779 - 0952434861</span></div>
-
                 <div class="account-wrapper">
                     <button class="account-btn" type="button" id="accountBtn">
                         👤 Tài khoản
@@ -47,10 +48,7 @@
                 </div>
 
                 <div class="wallet-box">💰 <span id="walletBalance">0 đ</span></div>
-
-                <button class="cart-icon" type="button">
-                    🛒 <span id="cartCount">0</span>
-                </button>
+                <button class="cart-icon" type="button">🛒<span id="cartCount">0</span></button>
             </div>
         </div>
     </header>
@@ -58,21 +56,30 @@
     <!-- ========================= MAIN ========================= -->
     <main class="container pd-container">
 
+        <!-- Tiêu đề sản phẩm -->
         <h1 id="pdTitle" class="pd-title">Đang tải…</h1>
 
+        <!-- 3 cột: LEFT (Gallery) | MID (Thông tin + Mua) | RIGHT (Gift + Warranty) -->
         <section class="pd-3col">
-            <!-- LEFT -->
+
+            <!-- LEFT: Gallery -->
             <div class="pd-left">
+
+                <!-- MAIN GALLERY -->
                 <div class="pd-gallery">
-                    <button id="gPrev" class="pd-nav pd-nav--prev">‹</button>
+                    <button id="gPrev" class="pd-nav pd-nav--prev" aria-label="Ảnh trước">‹</button>
+
                     <div class="pd-main">
                         <img id="pdMainImg" alt="Ảnh sản phẩm" />
                     </div>
-                    <button id="gNext" class="pd-nav pd-nav--next">›</button>
+
+                    <button id="gNext" class="pd-nav pd-nav--next" aria-label="Ảnh sau">›</button>
                 </div>
 
+                <!-- Thumbnails -->
                 <div id="pdThumbs" class="pd-thumbs"></div>
 
+                <!-- TAB: Mô tả / Thông số -->
                 <div class="pd-tabs">
                     <div class="pd-tabs__head">
                         <button class="pd-tab-btn active" data-tab="desc">Mô tả</button>
@@ -83,16 +90,22 @@
                         <div id="tabDesc" class="pd-tab active">
                             <div id="pdDesc" class="pd-desc"></div>
                         </div>
+
                         <div id="tabSpecs" class="pd-tab">
                             <table id="pdSpecsTable" class="pd-specs"></table>
                         </div>
                     </div>
                 </div>
+
             </div>
 
-            <!-- MID -->
+
+            <!-- MID: THÔNG TIN + GIÁ + MUA -->
             <div class="pd-mid">
+
+                <!-- Price block -->
                 <div class="pd-pricing">
+
                     <div class="pd-price-row">
 
                         <div class="pd-price-col">
@@ -105,26 +118,36 @@
                             <div id="pdPriceSale" class="pd-price-sale">--</div>
                             <span id="pdSaleBadge" class="pd-sale-badge hidden">-0%</span>
                         </div>
+
                     </div>
 
                     <div id="pdStatus" class="pd-status hidden">Còn hàng</div>
                 </div>
 
+                <!-- Bullets -->
                 <ul id="pdBullets" class="pd-bullets"></ul>
 
+                <!-- Variants -->
+                <div id="pdVariants" class="pd-variants hidden"></div>
+
+                <!-- Promotions -->
                 <div id="pdPromos" class="pd-promos hidden">
                     <div class="pd-promos__title">🎁 Khuyến mãi</div>
                     <ul id="pdPromoList"></ul>
                 </div>
 
+                <!-- CTA -->
                 <div class="pd-cta">
                     <button id="btnAddToCart" class="btn btn--add">Thêm vào giỏ</button>
                     <button id="btnBuyNow" class="btn btn--buy btn--xl">Mua ngay</button>
                 </div>
+
             </div>
 
-            <!-- RIGHT -->
+
+            <!-- RIGHT: Quà tặng + Bảo hành -->
             <aside class="pd-right">
+
                 <div class="pd-box">
                     <div class="pd-box__title">🎁 Quà tặng</div>
                     <ul class="pd-list">
@@ -142,39 +165,34 @@
                         <li>Giao hàng toàn quốc</li>
                     </ul>
                 </div>
+
             </aside>
+
         </section>
 
-        <div id="pdError" class="error hidden">
-            Không tải được dữ liệu. Vui lòng thử lại.
-        </div>
+        <div id="pdError" class="error hidden">Không tải được dữ liệu. Vui lòng thử lại.</div>
+
     </main>
 
+
+    <!-- TOAST -->
     <div id="toast" class="toast hidden">Đã thêm vào giỏ</div>
 
-    <!-- ✅ HEADER AUTH -->
-    /assets/js/header-auth.js</script>
-
-    <!-- ✅ CART BADGE -->
     <script>
+        // ========== HEADER CART (UNIVERSAL) ==========
         (function () {
             const CART_KEY = 'cart';
 
             function readCart() {
-                try {
-                    return JSON.parse(localStorage.getItem(CART_KEY)) || [];
-                } catch {
-                    return [];
-                }
+                try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+                catch { return []; }
             }
 
+            // đồng bộ số lượng
             window.updateCartBadge = function () {
                 const badge = document.querySelector('#cartCount');
                 if (!badge) return;
-                const count = readCart().reduce(
-                    (s, it) => s + (Number(it.qty) || 1),
-                    0
-                );
+                const count = readCart().reduce((s, it) => s + (Number(it.qty) || 1), 0);
                 badge.textContent = String(count);
             };
 
@@ -190,8 +208,8 @@
         })();
     </script>
 
-    <!-- ✅ PRODUCT DETAIL LOGIC -->
-    /ProductDetail/productdetail.js
+    <!-- JS xử lý logic ProductDetail -->
+    <script type="module" src="productdetail.js"></script>
 
 </body>
 </html>
